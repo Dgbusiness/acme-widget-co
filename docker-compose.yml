@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: acme-wiget-co-app
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    command: php -S 0.0.0.0:8000
+    ports:
+      - "8000:8000"
