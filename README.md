@@ -87,9 +87,14 @@ docker exec acme-wiget-co-app composer test
 - Orders $50–$90: $2.95 delivery
 - Orders over $90: Free delivery
 
-## Error Handling
+## Assumptions
 
-If you try to add a product code that does not exist, the system will throw an error.
+- The "Buy One, Get One Half Price" offer is applied every time the quantity of the target product is a multiple of 2 (i.e., for each pair, the second item is half price).
+- For this coding test, arrays are used to represent products, delivery rules, and offers. In a production environment, these would typically be managed using a database or persistent storage.
+- Product codes provided to the CLI tool must match exactly those defined in the catalogue; invalid codes will result in an error.
+- All monetary calculations are truncated (not rounded) to two decimal places to avoid rounding errors.
+- The CLI tool expects a single argument: a comma-separated list of product codes (no spaces).
+- The delivery cost is determined after discounts are applied to the basket subtotal.
 
 ---
 
